@@ -1,0 +1,53 @@
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin centerer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+$borderRadiusInherit: inherit;
+$borderRadiusNone: 0;
+$borderRadiusLarge: 0.375rem;
+$borderRadiusCircular: 50%;
+$borderRadiusRoundedCircle: 1.5rem;
+
+.avatar {
+  @include centerer;
+
+  &--circle {
+    border-radius: $borderRadiusCircular;
+  }
+
+  &--square {
+    border-radius: $borderRadiusNone;
+  }
+
+  &--rounded {
+    border-radius: $borderRadiusLarge;
+  }
+
+  &--rounded-circle {
+    border-radius: $borderRadiusRoundedCircle;
+  }
+
+  &--image {
+    @include size(100%);
+
+    object-fit: cover;
+
+    border-radius: $borderRadiusInherit;
+  }
+
+  &--rounded-circle-text-icon {
+    cursor: pointer;
+  }
+
+  &--icon {
+    svg {@include size(9px);
+    }
+  }
+}
